@@ -30,7 +30,7 @@ var import_node = __toESM(require_node(), 1);
 var import_react2 = __toESM(require_react(), 1);
 
 // app/tailwind.css?url
-var tailwind_default = "/build/_assets/tailwind-RGSF4L32.css?url";
+var tailwind_default = "/build/_assets/tailwind-HT3W2SI4.css?url";
 
 // app/root.tsx
 var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
@@ -247,4 +247,4 @@ export {
   App as default,
   links
 };
-//# sourceMappingURL=/build/root-I37WH5KC.js.map
+//# sourceMappingURL=/build/root-VLWO7FZW.js.map

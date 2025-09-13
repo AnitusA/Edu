@@ -1,7 +1,7 @@
 import {
   checkUserRole,
   supabase
-} from "/build/_shared/chunk-OZN3ZWCS.js";
+} from "/build/_shared/chunk-H2DG6BCE.js";
 import "/build/_shared/chunk-PF235JI7.js";
 import "/build/_shared/chunk-PH7FC7E6.js";
 import {
@@ -143,4 +143,4 @@ window.$RefreshSig$ = prevRefreshSig;
 export {
   AuthCallback as default
 };
-//# sourceMappingURL=/build/routes/auth.callback-BHEZSFDX.js.map
+//# sourceMappingURL=/build/routes/auth.callback-V37YM7B5.js.map

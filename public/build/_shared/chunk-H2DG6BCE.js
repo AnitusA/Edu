@@ -92,24 +92,10 @@ var checkUserRole = async (email) => {
     };
   }
 };
-var testDatabaseConnection = async () => {
-  console.log("=== TESTING DATABASE CONNECTION ===");
-  try {
-    const { data: allEmails, error: allError } = await supabase.from("allowed_emails").select("*");
-    console.log("All emails in database:", { allEmails, allError });
-    const { data: specificEmail, error: specificError } = await supabase.from("allowed_emails").select("*").eq("email", "anjai0600@gmail.com");
-    console.log("Specific email lookup:", { specificEmail, specificError });
-    return { success: !allError, data: allEmails, error: allError };
-  } catch (err) {
-    console.error("Database test failed:", err);
-    return { success: false, data: null, error: err };
-  }
-};
 
 export {
   supabase,
   signInWithGoogle,
-  checkUserRole,
-  testDatabaseConnection
+  checkUserRole
 };
-//# sourceMappingURL=/build/_shared/chunk-OZN3ZWCS.js.map
+//# sourceMappingURL=/build/_shared/chunk-H2DG6BCE.js.map

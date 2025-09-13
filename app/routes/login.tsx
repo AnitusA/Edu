@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState, useEffect } from "react";
-import { signInWithGoogle, testDatabaseConnection, supabase } from "~/utils/supabase";
+import { signInWithGoogle, supabase } from "~/utils/supabase";
 
 export const meta: MetaFunction = () => {
   return [
@@ -86,44 +86,7 @@ export default function Login() {
     }
   };
 
-  const handleTestDatabase = async () => {
-    console.log('Testing database connection...');
-    await testDatabaseConnection();
-  };
 
-  const handleManualTest = async () => {
-    console.log('=== MANUAL TEST ===');
-    // Simulate a successful login for testing
-    sessionStorage.setItem('isAuthenticated', 'true');
-    sessionStorage.setItem('userEmail', 'anjai0600@gmail.com');
-    sessionStorage.setItem('userType', 'student');
-    sessionStorage.setItem('userName', 'Anjai');
-    
-    console.log('Manual session set, redirecting...');
-    window.location.href = '/student/dashboard';
-  };
-
-  const handleOAuthTest = async () => {
-    console.log('=== OAUTH SIMPLE TEST ===');
-    try {
-      // Simple test to see if we can get current session
-      const { data: session, error } = await supabase.auth.getSession();
-      console.log('Current session:', { session, error });
-      
-      // Test OAuth without redirect
-      console.log('Testing signInWithOAuth...');
-      const result = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-        options: {
-          redirectTo: window.location.origin + '/auth/callback'
-        }
-      });
-      console.log('OAuth result:', result);
-      
-    } catch (err) {
-      console.error('OAuth test error:', err);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
@@ -181,26 +144,6 @@ export default function Login() {
             <p className="text-xs text-gray-400 mt-2">
               Only authorized email addresses can access this application
             </p>
-            
-            {/* Debug buttons - remove these in production */}
-            <button
-              onClick={handleTestDatabase}
-              className="mt-4 text-xs text-blue-500 hover:text-blue-700 underline block"
-            >
-              Test Database Connection (Debug)
-            </button>
-            <button
-              onClick={handleManualTest}
-              className="mt-2 text-xs text-green-500 hover:text-green-700 underline block"
-            >
-              Manual Login Test (Debug)
-            </button>
-            <button
-              onClick={handleOAuthTest}
-              className="mt-2 text-xs text-orange-500 hover:text-orange-700 underline block"
-            >
-              OAuth Test (Debug)
-            </button>
           </div>
         </div>
       </div>
